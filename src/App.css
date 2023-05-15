@@ -3,7 +3,7 @@
 body{
   background-color: #373737;
   font-family: monospace;
-  color:rgb(0, 255, 217);
+  color:#14c0d7;
 }
 
 ._SD_ACTIVE_{
@@ -13,6 +13,10 @@ body{
   margin-top: 10px;
 }
 
+foreignObject{
+  background-color: aliceblue;
+  border-radius: 6px;
+}
 
 .container {
   display: flex;
@@ -51,55 +55,10 @@ body{
 
 
 .histogram-container {
-  align-items: flex-start;
-  width: 400px;
+  width: 700px;
+  height: 500px;
 }
 
-.histogram-table {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.histogram-table th{
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #91ff00;
-
-}
-.histogram-table td {
-  padding: 5px;
-  text-align: left;
-}
-
-.histogram-bar {
-  display: flex;
-  align-items: center;
-  flex-direction:row;
-  margin-bottom: 5px;
-}
-
-.histogram-bar-label {
-  width: 100px;
-  margin-bottom: 5px;
-}
-
-.histogram-bar-visualization {
-  background-color: #007bff;
-  padding: 4px;
-  transition: background-color 0.3s;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.histogram-bar-frequency {
-  margin-top: 5px; /* Add some margin above the frequency */
-  text-align: center; /* Center-align the frequency */
-  margin-left: 10px;
-  font-weight: bold;
-}
-
-.histogram-bar-visualization:hover {
-  background-color: #ff6347;
-}
 
 .export-button {
   position: absolute;

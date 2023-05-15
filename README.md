@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Word Frequency Histogram
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Word Frequency Histogram
 
-## Available Scripts
+The Word Frequency Histogram application is a React-based web application that generates a histogram representing the frequency of words in a given text file. It utilizes the Terribly Tiny Tales API to fetch the text data and provides an interactive interface to explore and export the word frequency data.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository to your local machine using the following command:
+    
+    ```bash
+    git clone <repository_url>
+    
+    ```
+    
+2. Install the required dependencies by navigating to the project directory and running the following command:
+    
+    ```bash
+    npm install
+    
+    ```
+    
+3. Start the development server by running the following command:
+    
+    ```bash
+    npm start
+    
+    ```
+    
+4. Open your web browser and go to `http://localhost:3000` to access the application.
+5. In the input field, enter the desired number of most frequent words you want to analyze from the text file.
+6. Click the "Submit" button to initiate the word frequency analysis. The application will fetch the text data from the Terribly Tiny Tales API and generate a histogram based on the frequency of words.
+7. The generated histogram will display the top words and their corresponding frequencies in a tabular format.
+8. To export the histogram data as a CSV file, click the "Export" button. The application will generate a CSV file named `histogram_data.csv` that can be downloaded to your local machine.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Code Overview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The code in `App.js` file represents the main component of the Word Frequency Histogram application. 
 
-### `npm run build`
+- The imports at the beginning of the file bring in the necessary dependencies. `React` is imported for building the user interface, while `useState` and `useEffect` are React hooks used for managing state and side effects, respectively. The `'./App.css'` import is for styling the component.
+- The `App` function component is defined. It represents the root component of the application.
+- The state variables are defined using the `useState` hook:
+    - `histogramData` stores an array representing the word frequency data.
+    - `isLoading` indicates whether the application is currently fetching data.
+    - `showSubmitButton` determines whether the submit button should be displayed.
+    - `showCheckMark` controls the visibility of the check mark animation after exporting.
+- The `fetchWordFrequency` function is an asynchronous function responsible for fetching the word frequency data from the Terribly Tiny Tales API. It sets the state variables accordingly to update the UI with the fetched data.
+- The `handleExport` function is invoked when the export button is clicked. It prepares the histogram data for export by converting it into a CSV format. It creates a download link for the CSV file, attaches it to the DOM, and triggers a click event to initiate the download. Additionally, it sets the `showCheckMark` state to `true` to display the check mark animation and sets a timeout to hide it after 2 seconds.
+- The JSX code represents the structure and layout of the application UI:
+    - The submit button is conditionally rendered based on the `showSubmitButton` state.
+    - When the submit button is clicked and data is available, the histogram table is displayed.
+    - The histogram table is populated with rows containing word and frequency information. The width of the frequency visualization is dynamically set based on the frequency value.
+    - The export button is rendered, and its content is conditionally set based on the `showCheckMark` state. If `showCheckMark` is `true`, an image element with the check mark animation is displayed; otherwise, the button displays the text "Export".
+- The component is exported as the default export from the file.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This code forms the core functionality of the Word Frequency Histogram application, handling data fetching, UI rendering, and the export feature with the check mark animation.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Dependencies
 
-### `npm run eject`
+The Word Frequency Histogram application utilizes the following dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React: A JavaScript library for building user interfaces.
+- React DOM: A package for rendering React components in the browser.
+- Node Fetch: A library used for making HTTP requests to fetch the text data from the Terribly Tiny Tales API.
+- CSS: Custom CSS styles to enhance the visual presentation of the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Folder Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The project structure is organized as follows:
 
-## Learn More
+```
+├── src/
+│   ├── App.js
+│   ├── App.css
+│   └── index.js
+├── public/
+│   └── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+└── .gitignore
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The `src/` directory contains the main components and styling files for the application.
+- The `public/` directory includes the HTML file that serves as the entry point for the application.
+- The `package.json` file lists the project dependencies and provides various scripts to run and build the application.
+- The `README.md` file you are currently reading provides an overview of the application, its usage instructions, and other relevant details.
+- The `.gitignore` file specifies files and directories that should be ignored by version control systems, such as the `node_modules` directory.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the [MIT License](notion://www.notion.so/LICENSE). Feel free to modify and adapt the codebase according to your needs.

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import ReactApexChart from 'react-apexcharts';
+import ApexCharts from 'apexcharts';
 import './App.css';
 
 const App = () => {
@@ -7,6 +9,40 @@ const App = () => {
   const [showSubmitButton, setShowSubmitButton] = useState(true);
   const [showCheckMark, setShowCheckMark] = useState(false);
 
+  const [chartOptions, setChartOptions] = useState({
+    chart: {
+      type: 'bar',
+    },
+    xaxis: {
+      categories: [],
+    },
+    colors: ['#fe6519'],
+  });
+  
+  const [chartSeries, setChartSeries] = useState([
+    {
+      name: 'Frequency',
+      data: [],
+    },
+  ]);
+
+  useEffect(() => {
+    setChartOptions((prevOptions) => ({
+      ...prevOptions,
+      xaxis: {
+        categories: histogramData.map(([word]) => word),
+      },
+    }));
+
+    setChartSeries([
+      {
+        name: 'Frequency',
+        data: histogramData.map(([, frequency]) => frequency),
+      },
+    ]);
+
+    console.log(chartOptions);
+  }, [histogramData]);
 
   const fetchWordFrequency = async () => {
     setIsLoading(true);
@@ -59,51 +95,37 @@ const App = () => {
 
   return (
     <div>
-      <div className="submit-style">{showSubmitButton && (
-        <button className="submit-button submit-btn" onClick={fetchWordFrequency} disabled={isLoading}>
-          {isLoading ? 'Loading...' : 'Submit'}
-        </button>
-      )}</div>
-
+      <div className="submit-style">
+        {showSubmitButton && (
+          <button
+            className="submit-button submit-btn"
+            onClick={fetchWordFrequency}
+            disabled={isLoading}
+          >
+            {isLoading ? 'Loading...' : 'Submit'}
+          </button>
+        )}
+      </div>
 
       {!showSubmitButton && histogramData.length > 0 && (
         <div className="histogram-container">
-          <table className="histogram-table">
-            <thead>
-              <tr>
-                <th>Word</th>
-                <th>Frequency</th>
-              </tr>
-            </thead>
-            <tbody>
-              {histogramData.map(([word, frequency]) => (
-                <tr key={word}>
-                  <td>{word}</td>
-                  <td>
-                    <div className="histogram-bar">
-                      <div className="histogram-bar-visualization">
-                        <div
-                          className="histogram-bar-frequency"
-                          style={{ width: `${frequency * 10}px` }}
-                        >
-                          {frequency}
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <ReactApexChart
+            options={chartOptions}
+            series={chartSeries}
+            type="bar"
+          />
           <button className="export-button" onClick={handleExport}>
             {showCheckMark ? (
-              <img src="https://media2.giphy.com/media/QAUxbMqnNcMo9U0jt8/giphy.gif?cid=ecf05e47eaq07lzjn5uxttr44babndekgesq6jyx4w03tx6r&ep=v1_stickers_search&rid=giphy.gif&ct=s" alt="Check Mark Animation" width="20" height="20" />
+              <img
+                src="https://media2.giphy.com/media/QAUxbMqnNcMo9U0jt8/giphy.gif?cid=ecf05e47eaq07lzjn5uxttr44babndekgesq6jyx4w03tx6r&ep=v1_stickers_search&rid=giphy.gif&ct=s"
+                alt="Check Mark Animation"
+                width="20"
+                height="20"
+              />
             ) : (
               'Export'
             )}
           </button>
-
-
         </div>
       )}
     </div>
