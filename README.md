@@ -119,4 +119,7 @@ The project structure is organized as follows:
 - The `.gitignore` file specifies files and directories that should be ignored by version control systems, such as the `node_modules` directory.
 
 ---
+## Sneak Peak
+![image](https://github.com/tamojeetK/TERRIBLY-TINY-TALES-Assignment/assets/89387048/d18e1252-a8c8-43d3-8eb4-b83a5237c88d)
+
 
