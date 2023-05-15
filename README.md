@@ -10,7 +10,7 @@ This React app fetches text data from the URL and displays the frequency of word
 1. Clone the repository to your local machine using the following command:
     
     ```bash
-    git clone https://github.com/tamojeetK/TERRIBLY-TINY-TALES-Assignment.git
+    git clone <https://github.com/tamojeetK/TERRIBLY-TINY-TALES-Assignment.git>
     
     ```
     
@@ -31,9 +31,16 @@ This React app fetches text data from the URL and displays the frequency of word
 4. Open your web browser and go to `http://localhost:3000` to access the application.
 5. Click the "Submit" button to initiate the word frequency analysis. The application will fetch the text data from the Terribly Tiny Tales API and generate a histogram based on the frequency of words.
 6. The generated histogram will display the top words and their corresponding frequencies in a tabular format.
-9. To export the histogram data as a CSV file, click the "Export" button. The application will generate a CSV file named `histogram_data.csv` that can be downloaded to your local machine.
+7. To export the histogram data as a CSV file, click the "Export" button. The application will generate a CSV file named `histogram_data.csv` that can be downloaded to your local machine.
+
+### Alternatively…
+
+You can head over to the URL 
+
+[https://terribly-tiny-tales-assignment-tamojeetk.vercel.app/](https://terribly-tiny-tales-assignment-tamojeetk.vercel.app/)
 
 ---
+
 ## Code Overview
 
 The app is built using React and uses hooks such as `useState` and `useEffect` to manage state and side effects.
@@ -119,7 +126,7 @@ The project structure is organized as follows:
 - The `.gitignore` file specifies files and directories that should be ignored by version control systems, such as the `node_modules` directory.
 
 ---
+
 ## Sneak Peak
-![image](https://github.com/tamojeetK/TERRIBLY-TINY-TALES-Assignment/assets/89387048/d18e1252-a8c8-43d3-8eb4-b83a5237c88d)
 
-
+[https://github.com/tamojeetK/TERRIBLY-TINY-TALES-Assignment/assets/89387048/d18e1252-a8c8-43d3-8eb4-b83a5237c88d](https://github.com/tamojeetK/TERRIBLY-TINY-TALES-Assignment/assets/89387048/d18e1252-a8c8-43d3-8eb4-b83a5237c88d)
