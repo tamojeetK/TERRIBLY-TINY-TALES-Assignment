@@ -1,7 +1,7 @@
 # Word Frequency Histogram
 
 The Word Frequency Histogram application is a React-based web application that generates a histogram representing the frequency of words in a given text file. It utilizes the Terribly Tiny Tales API to fetch the text data and provides an interactive interface to explore and export the word frequency data.
-This React app fetches text data from a URL and displays the frequency of words in a bar chart using the `ApexCharts` library. The app also has an export feature that allows the user to download the histogram data as a CSV file.
+This React app fetches text data from the URL and displays the frequency of words in a bar chart using the `ApexCharts` library. The app also has an export feature that allows the user to download the histogram data as a CSV file.
 
 ---
 
