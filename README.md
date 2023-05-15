@@ -10,7 +10,7 @@ This React app fetches text data from a URL and displays the frequency of words 
 1. Clone the repository to your local machine using the following command:
     
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/tamojeetK/TERRIBLY-TINY-TALES-Assignment.git
     
     ```
     
