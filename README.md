@@ -29,10 +29,9 @@ This React app fetches text data from the URL and displays the frequency of word
     ```
     
 4. Open your web browser and go to `http://localhost:3000` to access the application.
-5. In the input field, enter the desired number of most frequent words you want to analyze from the text file.
-6. Click the "Submit" button to initiate the word frequency analysis. The application will fetch the text data from the Terribly Tiny Tales API and generate a histogram based on the frequency of words.
-7. The generated histogram will display the top words and their corresponding frequencies in a tabular format.
-8. To export the histogram data as a CSV file, click the "Export" button. The application will generate a CSV file named `histogram_data.csv` that can be downloaded to your local machine.
+5. Click the "Submit" button to initiate the word frequency analysis. The application will fetch the text data from the Terribly Tiny Tales API and generate a histogram based on the frequency of words.
+6. The generated histogram will display the top words and their corresponding frequencies in a tabular format.
+9. To export the histogram data as a CSV file, click the "Export" button. The application will generate a CSV file named `histogram_data.csv` that can be downloaded to your local machine.
 
 ---
 ## Code Overview
