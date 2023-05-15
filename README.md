@@ -1,8 +1,7 @@
 # Word Frequency Histogram
 
-# Word Frequency Histogram
-
 The Word Frequency Histogram application is a React-based web application that generates a histogram representing the frequency of words in a given text file. It utilizes the Terribly Tiny Tales API to fetch the text data and provides an interactive interface to explore and export the word frequency data.
+This React app fetches text data from a URL and displays the frequency of words in a bar chart using the `ApexCharts` library. The app also has an export feature that allows the user to download the histogram data as a CSV file.
 
 ---
 
@@ -36,26 +35,50 @@ The Word Frequency Histogram application is a React-based web application that g
 8. To export the histogram data as a CSV file, click the "Export" button. The application will generate a CSV file named `histogram_data.csv` that can be downloaded to your local machine.
 
 ---
-
 ## Code Overview
 
-The code in `App.js` file represents the main component of the Word Frequency Histogram application. 
+The app is built using React and uses hooks such as `useState` and `useEffect` to manage state and side effects.
 
-- The imports at the beginning of the file bring in the necessary dependencies. `React` is imported for building the user interface, while `useState` and `useEffect` are React hooks used for managing state and side effects, respectively. The `'./App.css'` import is for styling the component.
-- The `App` function component is defined. It represents the root component of the application.
-- The state variables are defined using the `useState` hook:
-    - `histogramData` stores an array representing the word frequency data.
-    - `isLoading` indicates whether the application is currently fetching data.
-    - `showSubmitButton` determines whether the submit button should be displayed.
-    - `showCheckMark` controls the visibility of the check mark animation after exporting.
-- The `fetchWordFrequency` function is an asynchronous function responsible for fetching the word frequency data from the Terribly Tiny Tales API. It sets the state variables accordingly to update the UI with the fetched data.
-- The `handleExport` function is invoked when the export button is clicked. It prepares the histogram data for export by converting it into a CSV format. It creates a download link for the CSV file, attaches it to the DOM, and triggers a click event to initiate the download. Additionally, it sets the `showCheckMark` state to `true` to display the check mark animation and sets a timeout to hide it after 2 seconds.
-- The JSX code represents the structure and layout of the application UI:
-    - The submit button is conditionally rendered based on the `showSubmitButton` state.
-    - When the submit button is clicked and data is available, the histogram table is displayed.
-    - The histogram table is populated with rows containing word and frequency information. The width of the frequency visualization is dynamically set based on the frequency value.
-    - The export button is rendered, and its content is conditionally set based on the `showCheckMark` state. If `showCheckMark` is `true`, an image element with the check mark animation is displayed; otherwise, the button displays the text "Export".
-- The component is exported as the default export from the file.
+### State Management
+
+The app uses several state variables to manage different aspects of its behavior:
+
+- `histogramData`: An array of `[word, frequency]` tuples representing the word frequency histogram data.
+- `isLoading`: A boolean indicating whether the app is currently fetching data from the URL.
+- `showSubmitButton`: A boolean indicating whether to show the "Submit" button.
+- `showCheckMark`: A boolean indicating whether to show a check mark animation after exporting the data.
+- `chartOptions`: An object representing the options for the ApexCharts bar chart.
+- `chartSeries`: An array representing the series data for the ApexCharts bar chart.
+
+### Fetching Data
+
+The `fetchWordFrequency` function is responsible for fetching text data from a URL, processing it, and updating the state with the resulting histogram data.
+
+First, it sets `isLoading` to `true` to indicate that data is being fetched. Then, it uses the `fetch` function to fetch text data from a URL and converts it into an array of words using `split`.
+
+Next, it uses a `Map` to count the frequency of each word in the array. It then converts the `Map` into an array of `[word, frequency]` tuples and sorts it in descending order of frequency.
+
+Finally, it updates the `histogramData` state with the top 20 most frequent words, sets `isLoading` to `false`, and hides the "Submit" button by setting `showSubmitButton` to `false`.
+
+### Updating Chart Data
+
+The app uses a `useEffect` hook to update the chart options and series whenever the histogram data changes.
+
+First, it updates the chart options by setting the x-axis categories to be an array of words from the histogram data. Then, it updates the chart series by setting its data to be an array of frequencies from the histogram data.
+
+### Rendering Chart
+
+The app uses the `ReactApexChart` component from the `react-apexcharts` library to render a bar chart representing the word frequency histogram. It passes in the chart options and series as props to this component.
+
+### Exporting Data
+
+The app provides an export feature that allows users to download the histogram data as a CSV file. This is implemented in the `handleExport` function.
+
+First, it constructs a CSV string by iterating over each `[word, frequency]` tuple in the histogram data and appending a row containing these values separated by a comma.
+
+Next, it creates an anchor element with its href attribute set to a data URI representing this CSV string and its download attribute set to `"histogram_data.csv"`. It then appends this anchor element to document body and triggers a click event on it to initiate download.
+
+Finally, it shows a check mark animation by setting `showCheckMark` to true for 2 seconds.
 
 This code forms the core functionality of the Word Frequency Histogram application, handling data fetching, UI rendering, and the export feature with the check mark animation.
 
@@ -98,6 +121,3 @@ The project structure is organized as follows:
 
 ---
 
-## License
-
-This project is licensed under the [MIT License](notion://www.notion.so/LICENSE). Feel free to modify and adapt the codebase according to your needs.
