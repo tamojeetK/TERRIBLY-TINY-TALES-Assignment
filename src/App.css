@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Silkscreen&display=swap');
+
+body{
+  background-color: #373737;
+  font-family: monospace;
+  color:rgb(0, 255, 217);
+}
+
+._SD_ACTIVE_{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button-container {
+  margin-bottom: 20px;
+}
+
+
+.submit-btn {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  border: none;
+  background-color: #91ff00;
+  color: #000000;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: double;
+  display: inline-block;
+  font-family: 'Silkscreen', cursive;
+  font-size: larger;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #3e9e0e;
+  color: #ffffff;
+} 
+
+
+.histogram-container {
+  align-items: flex-start;
+  width: 400px;
+}
+
+.histogram-table {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.histogram-table th{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #91ff00;
+
+}
+.histogram-table td {
+  padding: 5px;
+  text-align: left;
+}
+
+.histogram-bar {
+  display: flex;
+  align-items: center;
+  flex-direction:row;
+  margin-bottom: 5px;
+}
+
+.histogram-bar-label {
+  width: 100px;
+  margin-bottom: 5px;
+}
+
+.histogram-bar-visualization {
+  background-color: #007bff;
+  padding: 4px;
+  transition: background-color 0.3s;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.histogram-bar-frequency {
+  margin-top: 5px; /* Add some margin above the frequency */
+  text-align: center; /* Center-align the frequency */
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.histogram-bar-visualization:hover {
+  background-color: #ff6347;
+}
+
+.export-button {
+  position: absolute;
+  top: 2%;
+  left: 85%;
+  border: none;
+  background-color: #91ff00;
+  color: #000000;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: double;
+  display: inline-block;
+  font-family: 'Silkscreen', cursive;
+  font-size: larger;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.export-button:hover {
+  background-color: #3e9e0e;
+  color: #ffffff;
+} 
+
+
